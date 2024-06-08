@@ -3,8 +3,8 @@ from commands.command import Command
 class Exit(Command):
     name = "Exit"
     signature = "exit"
-    arguments = []
     desc = "Exits the prompt."
+    arguments = {}
     config = {}
 
     def _init_(self, cmd):

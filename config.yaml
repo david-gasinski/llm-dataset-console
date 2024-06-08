@@ -1,0 +1,39 @@
+version: 1
+formatters:
+  simple:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  info: 
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(file)s - %(func)s - %(line)s - %(message)s'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+  console-info: 
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: info
+    stream: ext://sys.stdout  
+  file:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: info
+    filename: development.log
+    mode: a
+loggers:
+  console: 
+    level: DEBUG
+    handlers: [console]
+    propagate: no
+  console-info:
+    level: INFO
+    handlers: [console-info]
+    propagate: no
+  file:
+    level: WARNING
+    handlers: [file]
+    propagate: no
+root:
+  level: DEBUG
+  handlers: [console]
